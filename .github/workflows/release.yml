@@ -1,0 +1,27 @@
+name: Release Build
+
+on:
+  push:
+    tags: [ '*' ]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out sources...
+        uses: actions/checkout@v2
+
+      - name: Build Docker Image
+        run: |-
+          docker build \
+            -t "ghcr.io/meixxi/butane-converter:${GITHUB_REF_NAME}" \
+            --build-arg "VERSION=${GITHUB_REF_NAME}" \
+            .
+      - name: Publish Docker Image to github
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u USERNAME --password-stdin
+          docker push "ghcr.io/meixxi/butane-converter:${GITHUB_REF_NAME}"
