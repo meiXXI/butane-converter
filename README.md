@@ -29,5 +29,5 @@ Here is a screen shot of the butaon converter:
 ### Example
 Converting a Butane file using the REST API
 ```
-curl --data-binary "@grafana.bu.yml" https://butane.meixxi.com/api/v0/convert
+curl --data-binary "@config.bu.yml" https://butane.meixxi.com/api/v0/convert
 ```
