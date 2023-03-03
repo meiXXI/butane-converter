@@ -110,6 +110,9 @@ class ButaneConverter extends React.Component {
                             extend by an GO-based web ui. This means, Butan Converter is always uses the latest 
                             command line tool.
                         </p>
+                        <p>
+                            You can find the <a href="https://github.com/meixxi/butane-converter#readme">Online Documentation</a> on github.
+                        </p>
                     </div>
                 </div>
 
